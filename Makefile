@@ -16,4 +16,5 @@ tsconfig.json:
 
 webpack.config.js:
 	npx webpack init
+	npx eslint --fix --no-eslintrc --rule 'indent: ["error", 2]' --parser-options='ecmaVersion:2015' $@
 
