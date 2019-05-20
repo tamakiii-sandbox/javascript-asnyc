@@ -16,11 +16,11 @@ export interface ApiError {
 
 export type ApiResult<Ok, Error> =
     | {
-        status: true
+        ok: true
         body: PostBody
     }
     | {
-        status: false
+        ok: false
         body: ApiError
     }
 
