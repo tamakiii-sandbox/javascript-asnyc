@@ -17,11 +17,11 @@ export interface ApiError {
 export type ApiResult<Ok, Error> =
     | {
         ok: true
-        body: PostBody
+        body: Ok
     }
     | {
         ok: false
-        body: ApiError
+        body: Error
     }
 
 export type PostResult = ApiResult<PostBody, ApiError>;
