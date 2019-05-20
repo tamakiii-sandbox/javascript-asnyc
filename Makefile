@@ -2,7 +2,7 @@ build-dev:
 	npx nodemon --watch webpack.config.js --watch package.json --exec "npx webpack --mode development --watch --progress --verbose"
 
 server:
-	node src/server.js
+	npx nodemon --watch src/server.js --watch db.json --exec "node src/server.js"
 
 init: \
 	package.json \
