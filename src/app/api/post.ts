@@ -13,7 +13,7 @@ export const postPost = async (entity: post.Post) : Promise<post.PostResult> => 
         }
     } catch (error) {
         if (error instanceof Error) {
-            return {type: post.ApiResultType.ERROR, body: {message: error.message}}
+            return {type: post.ApiResultType.ERROR, body: error}
         } else {
             throw error
         }

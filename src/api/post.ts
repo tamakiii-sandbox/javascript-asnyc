@@ -12,9 +12,7 @@ export interface PostOk {
 
 export interface PostNg {}
 
-export interface ApiError {
-    message: string
-}
+export interface ApiError extends Error {}
 
 export enum ApiResultType {
     OK = "ok",
