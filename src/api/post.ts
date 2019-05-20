@@ -4,27 +4,36 @@ export interface Post {
     author: string
 }
 
-export interface PostBody {
+export interface PostOk {
     id: number
     title: string
     author: string
 }
 
+export interface PostNg {}
+
 export interface ApiError {
     message: string
 }
 
-export type ApiResult<Ok, Error> =
+export type ApiResult<Ok, Ng, Error> =
     | {
         ok: true
+        error: false
         body: Ok
     }
     | {
         ok: false
+        error: false
+        body: Ng
+    }
+    | {
+        ok: false
+        error: true
         body: Error
     }
 
-export type PostResult = ApiResult<PostBody, ApiError>;
+export type PostResult = ApiResult<PostOk, PostNg, ApiError>;
 
 const headers = {
     "X-Requested-With": "XMLHttpRequest",
