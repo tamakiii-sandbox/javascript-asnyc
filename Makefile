@@ -14,3 +14,6 @@ package.json:
 tsconfig.json:
 	npx tsc --init
 
+webpack.config.js:
+	npx webpack init
+
