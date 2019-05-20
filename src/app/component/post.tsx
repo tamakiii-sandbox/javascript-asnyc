@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState }  from "react"
 import * as post from "../../api/post"
 
 class MyError extends Error {}
@@ -23,12 +23,12 @@ const postPost = async (entity: post.Post) : Promise<post.PostResult> => {
     }
 }
 
-const doPostPost = (): void => {
+const doPostPost = (title: string, author: string) => {
     try {
         const response = postPost({
             // id: 2,
-            title: (new Date()).toUTCString(),
-            author: "",
+            title,
+            author,
         })
 
         response.then(response => {
@@ -43,13 +43,32 @@ const doPostPost = (): void => {
     }
 
 }
+
 interface Props {}
 
 export default function Component(props: Props) {
+    const [title, setTitle] = useState<string>((new Date()).toUTCString());
+    const [author, setAuthor] = useState<string>("Test man");
+
     return (
         <>
             <h2>Post component</h2>
-            <button onClick={doPostPost}>Post</button>
+            <input
+                type="text"
+                name="title"
+                placeholder="title"
+                value={title}
+                onChange={e => setTitle(e.target.value)}
+            />
+            <input
+                type="text"
+                name="author"
+                placeholder="author"
+                value={author}
+                onChange={e => setAuthor(e.target.value)}
+            />
+
+            <button onClick={e => doPostPost(title, author)}>Post</button>
         </>
     )
 }
