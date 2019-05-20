@@ -16,20 +16,23 @@ export interface ApiError {
     message: string
 }
 
+export enum ApiResultType {
+    OK = "ok",
+    NG= "ng",
+    ERROR= "error",
+}
+
 export type ApiResult<Ok, Ng, Error> =
     | {
-        ok: true
-        error: false
+        type: ApiResultType.OK
         body: Ok
     }
     | {
-        ok: false
-        error: false
+        type: ApiResultType.NG
         body: Ng
     }
     | {
-        ok: false
-        error: true
+        type: ApiResultType.ERROR
         body: Error
     }
 
