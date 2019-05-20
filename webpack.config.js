@@ -50,7 +50,7 @@ module.exports = {
   },
 
   entry: {
-    index: './src/index'
+    index: './src/index.ts'
   },
 
   output: {

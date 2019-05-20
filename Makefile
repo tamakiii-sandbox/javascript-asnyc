@@ -1,3 +1,5 @@
+build-dev:
+	npx nodemon --watch webpack.config.js --watch package.json --exec "npx webpack --mode development --watch --progress --verbose"
 
 server:
 	npx json-server --watch db.json
