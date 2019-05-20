@@ -45,6 +45,13 @@ module.exports = {
         },
 
         test: /\.js$/
+      },
+      {
+        test: /\.tsx?$/,
+        loader: "ts-loader",
+        options: {
+          transpileOnly: true
+        }
       }
     ]
   },
@@ -54,7 +61,12 @@ module.exports = {
   },
 
   output: {
-    filename: '[name].[chunkhash].js'
+    filename: '[name].js'
+  },
+
+  resolve: {
+    modules: [path.resolve("./src"), path.resolve("./node_modules")],
+    extensions: [".ts", ".tsx", ".js", ".jsx"]
   },
 
   mode: 'development',
