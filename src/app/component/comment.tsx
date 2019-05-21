@@ -14,10 +14,10 @@ export default function Component() {
             if (response.type == rest.ResultType.OK) {
                 const comments = response.body
                 setComments(comments)
-                // context.setContext({...context, comments})
+                context.dispatch({ type: 'comments', value: comments})
             }
         })()
-    }, [context.lastUpdated])
+    }, [context.state.lastUpdated])
 
     return (
         <>

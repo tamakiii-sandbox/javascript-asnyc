@@ -14,10 +14,10 @@ export default function Component() {
             if (response.type == rest.ResultType.OK) {
                 const posts = response.body
                 setPosts(posts)
-                context.setContext({...context, posts})
+                context.dispatch({ type: 'posts', value: posts})
             }
         })();
-    }, [context.lastUpdated])
+    }, [context.state.lastUpdated])
 
     return (
         <>
