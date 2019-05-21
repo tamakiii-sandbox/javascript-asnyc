@@ -6,14 +6,14 @@ export const post = async (entity: rest.Comment) : Promise<rest.PostResult> => {
 
         if (response.ok !== true) {
             const body = await response.json() as null
-            return {type: rest.ApiResultType.NG, body}
+            return {type: rest.ResultType.NG, body}
         } else {
             const body = await response.json() as rest.PostOk
-            return {type: rest.ApiResultType.OK, body}
+            return {type: rest.ResultType.OK, body}
         }
     } catch (error) {
         if (error instanceof Error) {
-            return {type: rest.ApiResultType.ERROR, body: error}
+            return {type: rest.ResultType.ERROR, body: error}
         } else {
             throw error
         }

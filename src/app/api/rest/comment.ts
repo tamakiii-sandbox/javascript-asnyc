@@ -1,4 +1,4 @@
-import { ApiError, ApiResult, ApiResultType, headers } from "."
+import { Err, Result, ResultType, headers } from "."
 
 export interface Comment {
     id?: number
@@ -12,7 +12,7 @@ export interface PostOk {
     postId: number
 }
 
-export type PostResult = ApiResult<PostOk, null, ApiError>
+export type PostResult = Result<PostOk, null, Err>
 
 export const post = (comment: Comment) => (
     fetch('http://localhost:3000/api/comments', {
@@ -24,7 +24,7 @@ export const post = (comment: Comment) => (
 )
 
 export {
-    ApiError,
-    ApiResult,
-    ApiResultType,
+    Err,
+    Result,
+    ResultType,
 }

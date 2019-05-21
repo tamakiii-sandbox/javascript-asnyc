@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useContext } from "react"
 import * as rest from "../api/rest/post"
 import * as api from "../api/post"
-import { AppContext } from "../../app";
+import { AppContext, Context } from "../../app";
 
 export default function Component() {
     const [posts, setPosts] = useState<rest.Post[]>([])
-    const context = useContext(AppContext)
+    const context = useContext<Context>(AppContext)
 
     useEffect(() => {
         (async () => {
             const response = await api.gets()
-            if (response.type == rest.ApiResultType.OK) {
+            if (response.type == rest.ResultType.OK) {
                 setPosts(response.body)
             }
         })();

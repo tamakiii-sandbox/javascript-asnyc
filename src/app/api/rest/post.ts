@@ -1,4 +1,4 @@
-import { ApiResult, ApiResultType, ApiError, headers } from "."
+import { Result, ResultType, Err, headers } from "."
 
 export interface Post {
     id?: number
@@ -12,9 +12,9 @@ export interface PostOk {
     author: string
 }
 
-export type PostResult = ApiResult<PostOk, null, ApiError>
+export type PostResult = Result<PostOk, null, Err>
 
-export type GetsResult = ApiResult<Post[], null, ApiError>
+export type GetsResult = Result<Post[], null, Err>
 
 export const post = (post: Post) => (
     fetch('http://localhost:3000/api/posts', {
@@ -34,7 +34,7 @@ export const gets = () => (
 )
 
 export {
-    ApiError,
-    ApiResult,
-    ApiResultType,
+    Err,
+    Result,
+    ResultType,
 }

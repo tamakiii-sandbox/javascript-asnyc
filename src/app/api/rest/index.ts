@@ -1,22 +1,22 @@
 export interface Err extends Error {}
 
-export enum ApiResultType {
+export enum ResultType {
     OK = "ok",
     NG = "ng",
-    ERROR= "error",
+    ERR= "err",
 }
 
-export type ApiResult<Ok, Ng, Error> =
+export type Result<Ok, Ng, Error> =
     | {
-        type: ApiResultType.OK
+        type: ResultType.OK
         body: Ok
     }
     | {
-        type: ApiResultType.NG
+        type: ResultType.NG
         body: Ng
     }
     | {
-        type: ApiResultType.ERROR
+        type: ResultType.ERR
         body: Error
     }
 

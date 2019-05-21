@@ -6,22 +6,22 @@ import LastUpdated from "./app/component/lastupdated"
 
 export interface Context {
     lastUpdated: Date
-    setState: React.Dispatch<React.SetStateAction<Context>>
+    setContext: React.Dispatch<React.SetStateAction<Context>>
 }
 
 const initialValue = {
     lastUpdated: new Date,
-    setState: () => {},
+    setContext: () => {},
 }
 
 export const AppContext = React.createContext<Context>(initialValue);
 
 export default function App() {
-    const [state, setState] = useState<Context>(initialValue)
+    const [state, setContext] = useState<Context>(initialValue)
 
     return (
         // TODO: ErrorBounday
-        <AppContext.Provider value={{...state, setState}}>
+        <AppContext.Provider value={{...state, setContext}}>
             <h1>Hello</h1>
             <Post></Post>
             <PostPost></PostPost>
