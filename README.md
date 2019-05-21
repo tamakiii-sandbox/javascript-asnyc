@@ -1,1 +1,1 @@
-# javascript-asnyc
+# typescript-async
