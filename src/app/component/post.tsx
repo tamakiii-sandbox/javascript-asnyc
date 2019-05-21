@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react"
 import * as rest from "../api/rest/post"
 import * as api from "../api/post"
 import { AppContext, Context } from "../../app";
+import PostForm from "./form/post"
 
 export default function Component() {
     const [posts, setPosts] = useState<rest.Post[]>([])
@@ -24,6 +25,9 @@ export default function Component() {
                     <li key={post.id}>{post.title}({post.author})</li>
                 ))}
             </ul>
+
+            <h2>Form</h2>
+            <PostForm />
         </>
     )
 }

@@ -13,7 +13,6 @@ export interface PostOk {
 }
 
 export type PostResult = Result<PostOk, null, Err>
-
 export type GetsResult = Result<Post[], null, Err>
 
 export const post = (post: Post) => (

@@ -1,7 +1,6 @@
 import React, { useState } from "react"
-import PostPost from "./app/component/form/post"
-import PostComment from "./app/component/form/comment"
 import Post from "./app/component/post"
+import Comment from "./app/component/comment"
 import LastUpdated from "./app/component/lastupdated"
 
 export interface Context {
@@ -23,12 +22,12 @@ export default function App() {
         // TODO: ErrorBounday
         <AppContext.Provider value={{...context, setContext}}>
             <h1>Hello</h1>
-            <Post></Post>
-            <PostPost></PostPost>
-            <PostComment></PostComment>
-            <div>
-                <LastUpdated></LastUpdated>
-            </div>
+            <hr />
+            <Post />
+            <hr />
+            <Comment />
+            <hr />
+            <LastUpdated />
         </AppContext.Provider>
     )
 }

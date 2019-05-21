@@ -20,21 +20,20 @@ export default function Component() {
         <AppContext.Consumer>
             {context => (
                 <>
-                    <h2>Post component</h2>
                     <input
                         type="text"
                         name="title"
                         placeholder="title"
                         value={title}
                         onChange={e => setTitle(e.target.value)}
-                    />
+                    /><br />
                     <input
                         type="text"
                         name="author"
                         placeholder="author"
                         value={author}
                         onChange={e => setAuthor(e.target.value)}
-                    />
+                    /><br />
 
                     <button onClick={() => post(title, author, context)}>Post</button>
                 </>

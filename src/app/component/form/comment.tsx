@@ -20,7 +20,6 @@ export default function Component() {
         <AppContext.Consumer>
             {context => (
                 <>
-                    <h2>Comment component</h2>
                     <select
                         name="post-id"
                         value={postId}
