@@ -6,7 +6,7 @@ const post = async (body: string, postId: number, context: Context) => {
     try {
         const response = await api.post({body, postId})
         window.console.log(response)
-        context.setLastUpdated(new Date)
+        context.setState({...context, lastUpdated: new Date})
     } catch (error) {
         throw error
     }
