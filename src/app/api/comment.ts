@@ -5,7 +5,7 @@ export const post = async (entity: rest.Comment) : Promise<rest.PostResult> => {
         const response = await rest.post(entity)
 
         if (response.ok !== true) {
-            const body = await response.json() as rest.PostNg
+            const body = await response.json() as null
             return {type: rest.ApiResultType.NG, body}
         } else {
             const body = await response.json() as rest.PostOk
