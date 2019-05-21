@@ -34,7 +34,9 @@ export type ApiResult<Ok, Ng, Error> =
         body: Error
     }
 
-export type PostResult = ApiResult<PostOk, PostNg, ApiError>;
+export type PostResult = ApiResult<PostOk, PostNg, ApiError>
+
+export type GetsResult = ApiResult<Post[], null, ApiError>
 
 const headers = {
     "X-Requested-With": "XMLHttpRequest",
@@ -48,5 +50,13 @@ export const post = (post: Post) => (
         credentials: "same-origin",
         headers,
         body: JSON.stringify(post),
+    })
+)
+
+export const gets = () => (
+    fetch('http://localhost:3000/api/posts', {
+        method: "GET",
+        credentials: "same-origin",
+        headers,
     })
 )
