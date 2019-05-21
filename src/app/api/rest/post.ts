@@ -13,7 +13,7 @@ export interface PostOk {
 }
 
 export type PostResult = Result<PostOk, null, Err>
-export type GetsResult = Result<Post[], null, Err>
+export type ListResult = Result<Post[], null, Err>
 
 export const post = (post: Post) => (
     fetch('http://localhost:3000/api/posts', {
@@ -24,7 +24,7 @@ export const post = (post: Post) => (
     })
 )
 
-export const gets = () => (
+export const list = () => (
     fetch('http://localhost:3000/api/posts', {
         method: "GET",
         credentials: "same-origin",

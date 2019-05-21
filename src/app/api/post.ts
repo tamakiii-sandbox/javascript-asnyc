@@ -20,9 +20,9 @@ export const post = async (entity: rest.Post) : Promise<rest.PostResult> => {
     }
 }
 
-export const gets = async () : Promise<rest.GetsResult> => {
+export const list = async () : Promise<rest.ListResult> => {
     try {
-        const response = await rest.gets()
+        const response = await rest.list()
 
         if (response.ok !== true) {
             const body = await response.json() as null
