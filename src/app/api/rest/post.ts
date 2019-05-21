@@ -12,7 +12,21 @@ export interface PostOk {
     author: string
 }
 
+export interface PatchOk {
+    id: number
+    title: string
+    author: string
+}
+
+export interface GetOk {
+    id: number
+    title: string
+    author: string
+}
+
 export type PostResult = Result<PostOk, null, Err>
+export type PatchResult = Result<PatchOk, null, Err>
+export type GetResult = Result<GetOk, null, Err>
 export type ListResult = Result<Post[], null, Err>
 
 export const post = (post: Post) => (
@@ -21,6 +35,23 @@ export const post = (post: Post) => (
         credentials: "same-origin",
         headers,
         body: JSON.stringify(post),
+    })
+)
+
+export const patch = (post: Post) => (
+    fetch('http://localhost:3000/api/posts', {
+        method: "PATCH",
+        credentials: "same-origin",
+        headers,
+        body: JSON.stringify(post),
+    })
+)
+
+export const get = (id: number) => (
+    fetch(`http://localhost:3000/api/posts/${id}`, {
+        method: "GET",
+        credentials: "same-origin",
+        headers,
     })
 )
 
