@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import * as post from "../api/post"
+import * as post from "../../api/post"
 
 const doPostPost = (title: string, author: string) => {
     try {

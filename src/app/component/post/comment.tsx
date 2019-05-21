@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import * as api from "../api/comment"
+import * as api from "../../api/comment"
 
 interface Props {}
 

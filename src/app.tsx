@@ -1,6 +1,6 @@
 import React from "react"
-import Post from "./app/component/post"
-import Comment from "./app/component/comment"
+import PostPost from "./app/component/post/post"
+import PostComment from "./app/component/post/comment"
 
 interface Props {}
 
@@ -9,8 +9,8 @@ export default function App(props: Props) {
         // TODO: ErrorBounday
         <div>
             <h1>Hello</h1>
-            <Post></Post>
-            <Comment></Comment>
+            <PostPost></PostPost>
+            <PostComment></PostComment>
         </div>
     )
 }
