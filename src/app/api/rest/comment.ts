@@ -12,12 +12,28 @@ export interface PostOk {
     postId: number
 }
 
+export interface PatchOk {
+    id: number
+    body: string
+    postId: number
+}
+
 export type PostResult = Result<PostOk, null, Err>
+export type PatchResult = Result<PatchOk, null, Err>
 export type ListResult = Result<Comment[], null, Err>
 
 export const post = (comment: Comment) => (
     fetch('http://localhost:3000/api/comments', {
         method: "POST",
+        credentials: "same-origin",
+        headers,
+        body: JSON.stringify(comment),
+    })
+)
+
+export const patch = (comment: Comment) => (
+    fetch('http://localhost:3000/api/comments', {
+        method: "PATCH",
         credentials: "same-origin",
         headers,
         body: JSON.stringify(comment),

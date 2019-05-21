@@ -11,14 +11,14 @@ export const post = async (entity: Post) : Promise<rest.PostResult> => {
 
         if (response.ok !== true) {
             const body = await response.json() as null
-            return {type: rest.ResultType.NG, body}
+            throw {type: rest.ResultType.NG, body}
         } else {
             const body = await response.json() as rest.PostOk
             return {type: rest.ResultType.OK, body}
         }
     } catch (error) {
         if (error instanceof Error) {
-            return {type: rest.ResultType.ERR, body: error}
+            throw {type: rest.ResultType.ERR, body: error}
         } else {
             throw error
         }
@@ -31,14 +31,14 @@ export const patch = async (entity: Post) : Promise<rest.PatchResult> => {
 
         if (response.ok !== true) {
             const body = await response.json() as null
-            return {type: rest.ResultType.NG, body}
+            throw {type: rest.ResultType.NG, body}
         } else {
             const body = await response.json() as rest.PatchOk
             return {type: rest.ResultType.OK, body}
         }
     } catch (error) {
         if (error instanceof Error) {
-            return {type: rest.ResultType.ERR, body: error}
+            throw {type: rest.ResultType.ERR, body: error}
         } else {
             throw error
         }
@@ -51,14 +51,14 @@ export const get = async(id: number) : Promise<GetResult> => {
 
         if (response.ok !== true) {
             const body = await response.json() as null
-            return {type: rest.ResultType.NG, body}
+            throw {type: rest.ResultType.NG, body}
         } else {
             const body = await response.json() as rest.GetOk
             return {type: rest.ResultType.OK, body}
         }
     } catch (error) {
         if (error instanceof Error) {
-            return {type: rest.ResultType.ERR, body: error}
+            throw {type: rest.ResultType.ERR, body: error}
         } else {
             throw error
         }
@@ -71,14 +71,14 @@ export const list = async () : Promise<ListResult> => {
 
         if (response.ok !== true) {
             const body = await response.json() as null
-            return {type: rest.ResultType.NG, body}
+            throw {type: rest.ResultType.NG, body}
         } else {
             const body = await response.json() as Post[]
             return {type: rest.ResultType.OK, body}
         }
     } catch (error) {
         if (error instanceof Error) {
-            return {type: rest.ResultType.ERR, body: error}
+            throw {type: rest.ResultType.ERR, body: error}
         } else {
             throw error
         }

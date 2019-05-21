@@ -2,6 +2,7 @@ import React, { useState, useContext, useReducer } from "react"
 import Post from "./app/component/post"
 import Comment from "./app/component/comment"
 import LastUpdated from "./app/component/lastupdated"
+import CommentMulti from "./app/component/form/comment_multi"
 import * as reducer from "./app/reducer"
 
 export interface Context {
@@ -32,6 +33,8 @@ export default function App() {
             <button onClick={() => dispatch({ type: 'counter', value:  0 })}>reset</button>
             <button onClick={() => dispatch({ type: 'counter', value:  1 })}>+</button>
             <button onClick={() => dispatch({ type: 'counter', value: -1 })}>-</button>
+            <hr />
+            <CommentMulti />
         </AppContext.Provider>
     )
 }
