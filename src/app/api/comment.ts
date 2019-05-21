@@ -2,9 +2,9 @@ import * as rest from "./rest/comment"
 
 export interface Comment extends rest.Comment {}
 
-export const post = async (entity: Comment) : Promise<rest.PostResult> => {
+export const post = async (comment: Comment) : Promise<rest.PostResult> => {
     try {
-        const response = await rest.post(entity)
+        const response = await rest.post(comment)
 
         if (response.ok !== true) {
             const body = await response.json() as null
@@ -22,9 +22,9 @@ export const post = async (entity: Comment) : Promise<rest.PostResult> => {
     }
 }
 
-export const patch = async (entity: Comment) : Promise<rest.PatchResult> => {
+export const patch = async (comment: Comment) : Promise<rest.PatchResult> => {
     try {
-        const response = await rest.patch(entity)
+        const response = await rest.patch(comment)
 
         if (response.ok !== true) {
             const body = await response.json() as null

@@ -5,9 +5,9 @@ export type PostResult = rest.PostResult
 export type GetResult = rest.GetResult
 export type ListResult = rest.ListResult
 
-export const post = async (entity: Post) : Promise<rest.PostResult> => {
+export const post = async (post: Post) : Promise<rest.PostResult> => {
     try {
-        const response = await rest.post(entity)
+        const response = await rest.post(post)
 
         if (response.ok !== true) {
             const body = await response.json() as null
@@ -25,9 +25,9 @@ export const post = async (entity: Post) : Promise<rest.PostResult> => {
     }
 }
 
-export const patch = async (entity: Post) : Promise<rest.PatchResult> => {
+export const patch = async (post: Post) : Promise<rest.PatchResult> => {
     try {
-        const response = await rest.patch(entity)
+        const response = await rest.patch(post)
 
         if (response.ok !== true) {
             const body = await response.json() as null
