@@ -9,9 +9,7 @@ export interface Context {
     setLastUpdated: Function
 }
 
-interface Props {
-    //
-}
+interface Props {}
 
 interface State {
     lastUpdated: Date,
