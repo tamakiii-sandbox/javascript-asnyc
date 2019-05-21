@@ -1,5 +1,5 @@
 {
-  "name": "javascript-asnyc",
+  "name": "typescript-async",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -43,13 +43,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tamakiii-sandbox/javascript-asnyc.git"
+    "url": "git+https://github.com/tamakiii-sandbox/typescript-async.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tamakiii-sandbox/javascript-asnyc/issues"
+    "url": "https://github.com/tamakiii-sandbox/typescript-async/issues"
   },
-  "homepage": "https://github.com/tamakiii-sandbox/javascript-asnyc#readme"
+  "homepage": "https://github.com/tamakiii-sandbox/typescript-async#readme"
 }
