@@ -43,7 +43,7 @@ export default class App extends React.Component<Props, State> {
             // TODO: ErrorBounday
             <AppContext.Provider value={this.state}>
                 <h1>Hello</h1>
-                <Post lastUpdated={this.state.lastUpdated}></Post>
+                <Post></Post>
                 <PostPost></PostPost>
                 <PostComment></PostComment>
                 <div>

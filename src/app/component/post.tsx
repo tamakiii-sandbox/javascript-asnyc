@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import * as rest from "../../api/post"
 import * as api from "../api/post"
+import { AppContext } from "../../app";
 
-interface Props {
-    lastUpdated: Date
-}
-
-export default function Component(props: Props) {
-    const [posts, setPosts] = useState<rest.Post[]>([]);
+export default function Component() {
+    const [posts, setPosts] = useState<rest.Post[]>([])
+    const context = useContext(AppContext)
 
     useEffect(() => {
         (async () => {
@@ -16,7 +14,7 @@ export default function Component(props: Props) {
                 setPosts(response.body)
             }
         })();
-    }, [props.lastUpdated])
+    }, [context.lastUpdated])
 
     return (
         <>
