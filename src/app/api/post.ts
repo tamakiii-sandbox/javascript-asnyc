@@ -1,6 +1,6 @@
-import * as rest from "../../api/post"
+import * as rest from "./rest/post"
 
-export const postPost = async (entity: rest.Post) : Promise<rest.PostResult> => {
+export const post = async (entity: rest.Post) : Promise<rest.PostResult> => {
     try {
         const response = await rest.post(entity)
 

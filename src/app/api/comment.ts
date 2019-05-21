@@ -1,4 +1,4 @@
-import * as rest from "../../api/comment"
+import * as rest from "./rest/comment"
 
 export const post = async (entity: rest.Comment) : Promise<rest.PostResult> => {
     try {

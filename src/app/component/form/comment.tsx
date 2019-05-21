@@ -2,23 +2,17 @@ import React, { useState } from "react"
 import * as api from "../../api/comment"
 import { AppContext, Context } from "../../../app"
 
-interface Props {}
-
-const doPostComment = (body: string, postId: number, context: Context) => {
+const post = async (body: string, postId: number, context: Context) => {
     try {
-        const response = api.post({body, postId})
-
-        response.then(response => {
-            window.console.log(response)
-        })
-
+        const response = await api.post({body, postId})
+        window.console.log(response)
         context.setLastUpdated(new Date)
     } catch (error) {
         throw error
     }
 }
 
-export default function Component(props: Props) {
+export default function Component() {
     const [body, setBody] = useState<string>("Awsome comment");
     const [postId, setPostId] = useState<number>(2);
 
@@ -42,7 +36,7 @@ export default function Component(props: Props) {
                         onChange={e => setBody(e.target.value)}
                     ></textarea>
 
-                    <button onClick={e => doPostComment(body, postId, context)}>Comment</button>
+                    <button onClick={() => post(body, postId, context)}>Comment</button>
                 </>
             )}
         </AppContext.Consumer>

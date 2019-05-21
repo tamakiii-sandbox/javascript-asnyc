@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react"
-import * as rest from "../../api/post"
+import * as rest from "../api/rest/post"
 import * as api from "../api/post"
 import { AppContext } from "../../app";
 

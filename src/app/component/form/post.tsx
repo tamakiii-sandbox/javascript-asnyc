@@ -1,28 +1,18 @@
 import React, { useState } from "react"
-import * as post from "../../api/post"
+import * as api from "../../api/post"
 import { AppContext, Context } from "../../../app";
 
-const doPostPost = (title: string, author: string, context: Context) => {
+const post = async (title: string, author: string, context: Context) => {
     try {
-        const response = post.postPost({
-            // id: 2,
-            title,
-            author,
-        })
-
-        response.then(response => {
-            window.console.log(response)
-        })
-
+        const response = await api.post({title, author})
+        window.console.log(response.body)
         context.setLastUpdated(new Date)
     } catch (error) {
         throw error
     }
 }
 
-interface Props {}
-
-export default function Component(props: Props) {
+export default function Component() {
     const [title, setTitle] = useState<string>((new Date()).toUTCString());
     const [author, setAuthor] = useState<string>("Test man");
 
@@ -46,7 +36,7 @@ export default function Component(props: Props) {
                         onChange={e => setAuthor(e.target.value)}
                     />
 
-                    <button onClick={e => doPostPost(title, author, context)}>Post</button>
+                    <button onClick={() => post(title, author, context)}>Post</button>
                 </>
             )}
         </AppContext.Consumer>
