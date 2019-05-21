@@ -18,27 +18,23 @@ export default function Component() {
     const context = useContext<Context>(AppContext);
 
     return (
-        // <AppContext.Consumer>
-        //     {context => (
-                <>
-                    <input
-                        type="text"
-                        name="title"
-                        placeholder="title"
-                        value={title}
-                        onChange={e => setTitle(e.target.value)}
-                    /><br />
-                    <input
-                        type="text"
-                        name="author"
-                        placeholder="author"
-                        value={author}
-                        onChange={e => setAuthor(e.target.value)}
-                    /><br />
+        <>
+            <input
+                type="text"
+                name="title"
+                placeholder="title"
+                value={title}
+                onChange={e => setTitle(e.target.value)}
+            /><br />
+            <input
+                type="text"
+                name="author"
+                placeholder="author"
+                value={author}
+                onChange={e => setAuthor(e.target.value)}
+            /><br />
 
-                    <button onClick={() => post(title, author, context)}>Post</button>
-                </>
-        //     )}
-        // </AppContext.Consumer>
+            <button onClick={() => post(title, author, context)}>Post</button>
+        </>
     )
 }
