@@ -1,10 +1,10 @@
 import React, { useState } from "react"
-import * as api from "../../api/comment"
+import * as api from "../../api"
 import { AppContext, Context } from "../../../app"
 
 const post = async (body: string, postId: number, context: Context) => {
     try {
-        const response = await api.post({body, postId})
+        const response = await api.comment.post({body, postId})
         window.console.log(response)
         context.setContext({...context, lastUpdated: new Date})
     } catch (error) {
@@ -25,9 +25,9 @@ export default function Component() {
                         value={postId}
                         onChange={e => setPostId(parseInt(e.target.value))}
                     >
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                        {context.posts.map((post: api.post.Post) => (
+                            <option key={post.id} value={post.id}>{post.title}</option>
+                        ))}
                     </select>
                     <textarea
                         name="body"

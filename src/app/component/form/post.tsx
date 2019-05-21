@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import * as api from "../../api/post"
 import { AppContext, Context } from "../../../app";
 
@@ -15,10 +15,11 @@ const post = async (title: string, author: string, context: Context) => {
 export default function Component() {
     const [title, setTitle] = useState<string>((new Date()).toUTCString());
     const [author, setAuthor] = useState<string>("Test man");
+    const context = useContext<Context>(AppContext);
 
     return (
-        <AppContext.Consumer>
-            {context => (
+        // <AppContext.Consumer>
+        //     {context => (
                 <>
                     <input
                         type="text"
@@ -37,7 +38,7 @@ export default function Component() {
 
                     <button onClick={() => post(title, author, context)}>Post</button>
                 </>
-            )}
-        </AppContext.Consumer>
+        //     )}
+        // </AppContext.Consumer>
     )
 }

@@ -1,6 +1,10 @@
 import * as rest from "./rest/post"
 
-export const post = async (entity: rest.Post) : Promise<rest.PostResult> => {
+export interface Post extends rest.Post {}
+export type PostResult = rest.PostResult
+export type ListResult = rest.ListResult
+
+export const post = async (entity: Post) : Promise<rest.PostResult> => {
     try {
         const response = await rest.post(entity)
 
@@ -20,7 +24,7 @@ export const post = async (entity: rest.Post) : Promise<rest.PostResult> => {
     }
 }
 
-export const list = async () : Promise<rest.ListResult> => {
+export const list = async () : Promise<ListResult> => {
     try {
         const response = await rest.list()
 
@@ -28,7 +32,7 @@ export const list = async () : Promise<rest.ListResult> => {
             const body = await response.json() as null
             return {type: rest.ResultType.NG, body}
         } else {
-            const body = await response.json() as rest.Post[]
+            const body = await response.json() as Post[]
             return {type: rest.ResultType.OK, body}
         }
     } catch (error) {

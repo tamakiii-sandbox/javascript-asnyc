@@ -1,6 +1,8 @@
 import * as rest from "./rest/comment"
 
-export const post = async (entity: rest.Comment) : Promise<rest.PostResult> => {
+export interface Comment extends rest.Comment {}
+
+export const post = async (entity: Comment) : Promise<rest.PostResult> => {
     try {
         const response = await rest.post(entity)
 
@@ -28,7 +30,7 @@ export const list = async () : Promise<rest.ListResult> => {
             const body = await response.json() as null
             return {type: rest.ResultType.NG, body}
         } else {
-            const body = await response.json() as rest.Comment[]
+            const body = await response.json() as Comment[]
             return {type: rest.ResultType.OK, body}
         }
     } catch (error) {

@@ -12,7 +12,9 @@ export default function Component() {
         (async() => {
             const response = await api.list();
             if (response.type == rest.ResultType.OK) {
-                setComments(response.body)
+                const comments = response.body
+                setComments(comments)
+                // context.setContext({...context, comments})
             }
         })()
     }, [context.lastUpdated])
