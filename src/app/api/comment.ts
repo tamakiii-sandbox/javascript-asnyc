@@ -13,7 +13,7 @@ export const post = async (entity: rest.Comment) : Promise<rest.PostResult> => {
         }
     } catch (error) {
         if (error instanceof Error) {
-            return {type: rest.ResultType.ERROR, body: error}
+            return {type: rest.ResultType.ERR, body: error}
         } else {
             throw error
         }
