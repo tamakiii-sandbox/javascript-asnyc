@@ -6,7 +6,8 @@ server:
 
 init: \
 	package.json \
-	tsconfig.json
+	tsconfig.json \
+	webpack.config.js
 
 package.json:
 	npm init --yes
