@@ -17,11 +17,11 @@ const initialValue = {
 export const AppContext = React.createContext<Context>(initialValue);
 
 export default function App() {
-    const [state, setContext] = useState<Context>(initialValue)
+    const [context, setContext] = useState<Context>(initialValue)
 
     return (
         // TODO: ErrorBounday
-        <AppContext.Provider value={{...state, setContext}}>
+        <AppContext.Provider value={{...context, setContext}}>
             <h1>Hello</h1>
             <Post></Post>
             <PostPost></PostPost>
