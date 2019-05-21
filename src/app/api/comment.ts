@@ -1,4 +1,5 @@
 import * as rest from "./rest/comment"
+import { ResultType } from "./rest"
 
 export interface Comment extends rest.Comment {}
 
@@ -8,14 +9,14 @@ export const post = async (comment: Comment) : Promise<rest.PostResult> => {
 
         if (response.ok !== true) {
             const body = await response.json() as null
-            throw {type: rest.ResultType.NG, body}
+            throw {type: ResultType.NG, body}
         } else {
             const body = await response.json() as rest.PostOk
-            return {type: rest.ResultType.OK, body}
+            return {type: ResultType.OK, body}
         }
     } catch (error) {
         if (error instanceof Error) {
-            throw {type: rest.ResultType.ERR, body: error}
+            throw {type: ResultType.ERR, body: error}
         } else {
             throw error
         }
@@ -28,14 +29,14 @@ export const patch = async (comment: Comment) : Promise<rest.PatchResult> => {
 
         if (response.ok !== true) {
             const body = await response.json() as null
-            throw {type: rest.ResultType.NG, body}
+            throw {type: ResultType.NG, body}
         } else {
             const body = await response.json() as rest.PatchOk
-            return {type: rest.ResultType.OK, body}
+            return {type: ResultType.OK, body}
         }
     } catch (error) {
         if (error instanceof Error) {
-            throw {type: rest.ResultType.ERR, body: error}
+            throw {type: ResultType.ERR, body: error}
         } else {
             throw error
         }
@@ -48,14 +49,14 @@ export const list = async () : Promise<rest.ListResult> => {
 
         if (response.ok !== true) {
             const body = await response.json() as null
-            throw {type: rest.ResultType.NG, body}
+            throw {type: ResultType.NG, body}
         } else {
             const body = await response.json() as Comment[]
-            return {type: rest.ResultType.OK, body}
+            return {type: ResultType.OK, body}
         }
     } catch (error) {
         if (error instanceof Error) {
-            throw {type: rest.ResultType.ERR, body: error}
+            throw {type: ResultType.ERR, body: error}
         } else {
             throw error
         }
