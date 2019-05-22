@@ -1,4 +1,4 @@
-import React, { useReducer } from "react"
+import React, { useReducer, useCallback, useDebugValue } from "react"
 import { RootStateContext, DispatchContext } from "./app/context/app"
 import Post from "./app/component/post"
 import Comment from "./app/component/comment"
@@ -14,6 +14,10 @@ export default function App() {
 
     const [state, dispatch] = useReducer(reducer.reducer, initialState)
 
+    const reset = useCallback(() => dispatch({ type: 'counter', payload: 0 }), [])
+    const increment = useCallback(() => dispatch({ type: 'counter', payload: 1 }), [])
+    const decrement = useCallback(() => dispatch({ type: 'counter', payload: -1 }), [])
+
     return (
         // TODO: ErrorBounday
         <RootStateContext.Provider value={state}>
@@ -27,9 +31,9 @@ export default function App() {
                 <LastUpdated />
                 <hr />
                 <input type="text" value={state.counter.count} readOnly></input>
-                <button onClick={() => dispatch({ type: 'counter', payload: 0 })}>reset</button>
-                <button onClick={() => dispatch({ type: 'counter', payload: 1 })}>+</button>
-                <button onClick={() => dispatch({ type: 'counter', payload: -1 })}>-</button>
+                <button onClick={reset}>reset</button>
+                <button onClick={increment}>+</button>
+                <button onClick={decrement}>-</button>
                 <hr />
                 <CommentMulti />
             </DispatchContext.Provider>
