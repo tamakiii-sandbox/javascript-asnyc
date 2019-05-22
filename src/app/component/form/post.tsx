@@ -16,7 +16,7 @@ const post = async (title: string, author: string, dispatch: any) => {
     try {
         const response = await api.post.post({title, author})
         window.console.log(response.body)
-        dispatch({ type: 'lastUpdated', value: new Date})
+        dispatch({ type: 'lastUpdated', payload: new Date})
     } catch (error) {
         throw error
     }
@@ -26,7 +26,7 @@ const patch = async (id: number, title: string, author: string, dispatch: any) =
     try {
         const response = await api.post.patch({id, title, author})
         window.console.log(response.body)
-        dispatch({type: 'lastUpdated', value: new Date})
+        dispatch({type: 'lastUpdated', payload: new Date})
     } catch (error) {
         throw error
     }

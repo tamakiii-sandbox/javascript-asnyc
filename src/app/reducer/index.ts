@@ -10,16 +10,16 @@ export interface State {
 export type Action =
     | {
         type: 'counter'
-        value: number
+        payload: number
     } | {
         type: 'posts'
-        value: api.post.Post[]
+        payload: api.post.Post[]
     } | {
         type: 'comments'
-        value: api.comment.Comment[]
+        payload: api.comment.Comment[]
     } | {
         type: 'lastUpdated'
-        value: Date
+        payload: Date
     }
 
 export const initialState : State = {
@@ -31,20 +31,20 @@ export const initialState : State = {
 
 export const reducer = (state: State, action: Action) => {
     if (action.type === 'counter') {
-        if (action.value == 0) {
+        if (action.payload == 0) {
             return {...state, count: 0 }
         } else {
-            return {...state, count: state.count + action.value }
+            return {...state, count: state.count + action.payload }
         }
     }
     if (action.type === 'posts') {
-        return {...state, posts: action.value }
+        return {...state, posts: action.payload }
     }
     if (action.type === 'comments') {
-        return {...state, comments: action.value}
+        return {...state, comments: action.payload}
     }
     if (action.type === 'lastUpdated') {
-        return {...state, lastUpdated: action.value }
+        return {...state, lastUpdated: action.payload }
     }
     
     return state
