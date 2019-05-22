@@ -7,7 +7,7 @@ import CommentMulti from "./app/component/form/comment_multi"
 import * as reducer from "./app/reducer"
 
 export default function App() {
-    const [state, dispatch] = useReducer(reducer.reducer, reducer.initialState)
+    const [state, dispatch] = useReducer(reducer.reducer, { app: reducer.initialState })
 
     return (
         // TODO: ErrorBounday
@@ -21,10 +21,10 @@ export default function App() {
                 <hr />
                 <LastUpdated />
                 <hr />
-                <input type="text" value={state.count} readOnly></input>
-                <button onClick={() => dispatch({ type: 'counter', value: 0 })}>reset</button>
-                <button onClick={() => dispatch({ type: 'counter', value: 1 })}>+</button>
-                <button onClick={() => dispatch({ type: 'counter', value: -1 })}>-</button>
+                <input type="text" value={state.app.count} readOnly></input>
+                <button onClick={() => dispatch({ type: 'counter', payload: 0 })}>reset</button>
+                <button onClick={() => dispatch({ type: 'counter', payload: 1 })}>+</button>
+                <button onClick={() => dispatch({ type: 'counter', payload: -1 })}>-</button>
                 <hr />
                 <CommentMulti />
             </AppDispatchContext.Provider>

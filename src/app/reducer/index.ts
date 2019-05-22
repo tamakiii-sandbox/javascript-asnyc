@@ -1,6 +1,11 @@
 import * as api from "../api"
+import { combineReducers, AnyAction } from "redux"
 
-export interface State {
+export interface RootState {
+    app: AppState
+}
+
+export interface AppState {
     count: number
     posts: api.post.Post[]
     comments: api.comment.Comment[]
@@ -28,14 +33,14 @@ type LastUpdatedAction = {
 
 export type Action = CounterAction | PostAction | CommentAction | LastUpdatedAction;
 
-export const initialState : State = {
+export const initialState : AppState = {
     count: 0,
     posts: [],
     comments: [],
     lastUpdated: new Date,
 }
 
-export const reducer = (state: State, action: Action) => {
+export const app = (state: AppState = initialState, action: Action | AnyAction) => {
     if (action.type === 'counter') {
         if (action.payload == 0) {
             return {...state, count: 0 }
@@ -55,3 +60,5 @@ export const reducer = (state: State, action: Action) => {
     
     return state
 }
+
+export const reducer = combineReducers({ app })

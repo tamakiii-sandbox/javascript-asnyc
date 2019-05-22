@@ -15,10 +15,10 @@ export default function Component() {
             if (response.type == rest.ResultType.OK) {
                 const comments = response.body
                 setComments(comments)
-                dispatch({ type: 'comments', value: comments})
+                dispatch({ type: 'comments', payload: comments})
             }
         })()
-    }, [state.lastUpdated])
+    }, [state.app.lastUpdated])
 
     return (
         <>

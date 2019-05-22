@@ -46,7 +46,7 @@ export default function Component() {
     }
 
     const onChangePost= (id: number) => {
-        setPost(state.posts.find((post: api.post.Post) => (
+        setPost(state.app.posts.find((post: api.post.Post) => (
             post ? post.id == id : false
         )))
     }
@@ -56,7 +56,7 @@ export default function Component() {
             <h2>Multi comment</h2>
             <select name="post" onChange={e => onChangePost(parseInt(e.target.value))}>
                 <option value="">--</option>
-                {state.posts.map((post: api.post.Post) => (
+                {state.app.posts.map((post: api.post.Post) => (
                     <option key={post.id} value={post.id}>{post.title}</option>
                 ))}
             </select>

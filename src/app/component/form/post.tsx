@@ -62,7 +62,7 @@ export default function Component() {
         <>
             <select name="id" onChange={e => !e.target.value ? resetPost() : loadPost(parseInt(e.target.value))}>
                 <option value="">--</option>
-                {state.posts.map((post: api.post.Post) => (
+                {state.app.posts.map((post: api.post.Post) => (
                     <option key={post.id} value={post.id}>{post.title}</option>
                 ))}
             </select>

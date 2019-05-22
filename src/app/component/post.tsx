@@ -13,16 +13,16 @@ export default function Component() {
             const response = await api.list()
             if (response.type == rest.ResultType.OK) {
                 const posts = response.body
-                dispatch({ type: 'posts', value: posts })
+                dispatch({ type: 'posts', payload: posts })
             }
         })();
-    }, [state.lastUpdated])
+    }, [state.app.lastUpdated])
 
     return (
         <>
             <h2>Post Component</h2>
             <ul>
-                {state.posts.map((post: rest.Post) => (
+                {state.app.posts.map((post: rest.Post) => (
                     <li key={post.id}>{post.title}({post.author})</li>
                 ))}
             </ul>

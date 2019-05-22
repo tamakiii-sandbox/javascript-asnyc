@@ -6,6 +6,6 @@ export default function Component() {
     window.console.log(state)
 
     return (
-        <strong>{state.lastUpdated.toUTCString()}</strong>
+        <strong>{state.app.lastUpdated.toUTCString()}</strong>
     )
 }

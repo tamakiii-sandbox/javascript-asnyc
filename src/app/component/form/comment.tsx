@@ -16,7 +16,7 @@ export default function Component() {
     const [postId, setPostId] = useState<number>(2)
     const state = useAppState()
     const dispatch = useAppDispatch()
-    window.console.log(state.posts)
+    window.console.log(state.app.posts)
 
     return (
         <>
@@ -25,7 +25,7 @@ export default function Component() {
                 value={postId}
                 onChange={e => setPostId(parseInt(e.target.value))}
             >
-                {state.posts.map((post: api.post.Post) => (
+                {state.app.posts.map((post: api.post.Post) => (
                     <option key={post.id} value={post.id}>{post.title}</option>
                 ))}
             </select>
