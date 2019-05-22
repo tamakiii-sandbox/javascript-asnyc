@@ -1,40 +1,32 @@
-import React, { useState, useContext, useReducer } from "react"
+import React, { useReducer } from "react"
+import { RootStateContext, RootDispatchContext } from "./app/context"
 import Post from "./app/component/post"
 import Comment from "./app/component/comment"
+import Counter from "./app/component/counter"
 import LastUpdated from "./app/component/lastupdated"
 import CommentMulti from "./app/component/form/comment_multi"
-import * as reducer from "./app/reducer"
-
-export interface Context {
-    state: reducer.State
-    dispatch: React.Dispatch<reducer.Action>
-}
-
-export const AppContext = React.createContext<Context>({
-    state: reducer.initialState,
-    dispatch: () => {}
-});
+import { reducer, initialState } from "./app/reducer"
 
 export default function App() {
-    const [state, dispatch] = useReducer(reducer.reducer, reducer.initialState);
+    // const initialState = reducer.reducer(undefined, { type: '__initialize__' })
+    const [state, dispatch] = useReducer(reducer, initialState)
 
     return (
         // TODO: ErrorBounday
-        <AppContext.Provider value={{ state, dispatch }}>
-            <h1>Hello</h1>
-            <hr />
-            <Post />
-            <hr />
-            <Comment />
-            <hr />
-            <LastUpdated />
-            <hr />
-            <input type="text" value={state.count} readOnly></input>
-            <button onClick={() => dispatch({ type: 'counter', value:  0 })}>reset</button>
-            <button onClick={() => dispatch({ type: 'counter', value:  1 })}>+</button>
-            <button onClick={() => dispatch({ type: 'counter', value: -1 })}>-</button>
-            <hr />
-            <CommentMulti />
-        </AppContext.Provider>
+        <RootStateContext.Provider value={state}>
+            <RootDispatchContext.Provider value={dispatch}>
+                <h1>Hello</h1>
+                <hr />
+                <Post />
+                <hr />
+                <Comment />
+                <hr />
+                <LastUpdated />
+                <hr />
+                <Counter />
+                <hr />
+                <CommentMulti />
+            </RootDispatchContext.Provider>
+        </RootStateContext.Provider>
     )
 }

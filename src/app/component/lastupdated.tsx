@@ -1,11 +1,11 @@
-import React, { useContext } from "react"
-import { AppContext, Context } from "../../app"
+import React from "react"
+import { useRootState } from "../context";
 
 export default function Component() {
-    const context = useContext<Context>(AppContext)
-    window.console.log(context)
+    const state = useRootState();
+    window.console.log(state)
 
     return (
-        <strong>{context.state.lastUpdated.toUTCString()}</strong>
+        <strong>{state.app.lastUpdated.toUTCString()}</strong>
     )
 }
