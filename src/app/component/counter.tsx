@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
-import { useCounterState, useRootDispatch } from "../context/app";
+import { useRootState, useRootDispatch } from "../context";
 
 export default function Component() {
-    const state = useCounterState();
+    const state = useRootState();
     const dispatch = useRootDispatch();
 
     const reset = useCallback(() => dispatch({ type: 'counter', payload: 0 }), [])
@@ -11,7 +11,7 @@ export default function Component() {
 
     return (
         <>
-            <input type="text" value={state.count} readOnly></input>
+            <input type="text" value={state.counter.count} readOnly></input>
             <button onClick={reset}>reset</button>
             <button onClick={increment}>+</button>
             <button onClick={decrement}>-</button>

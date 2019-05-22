@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react"
 import * as api from "../../api"
-import { useRootState, useRootDispatch } from "../../context/app";
+import { useRootState, useRootDispatch } from "../../context";
 
 const post = async (body: string, postId: number, dispatch: any) => {
     try {

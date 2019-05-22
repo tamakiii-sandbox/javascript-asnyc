@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import * as api from "../../api"
 import { ResultType } from "../../api/rest"
-import { useRootState, useRootDispatch } from "../../context/app";
+import { useRootState, useRootDispatch } from "../../context";
 
 const get = async (id: number) => {
     try {

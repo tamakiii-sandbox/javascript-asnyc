@@ -1,5 +1,5 @@
 import React from "react"
-import { useRootState } from "../context/app";
+import { useRootState } from "../context";
 
 export default function Component() {
     const state = useRootState();

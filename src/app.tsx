@@ -1,5 +1,5 @@
 import React, { useReducer } from "react"
-import { RootStateContext, RootDispatchContext, CounterStateContext } from "./app/context/app"
+import { RootStateContext, RootDispatchContext } from "./app/context"
 import Post from "./app/component/post"
 import Comment from "./app/component/comment"
 import Counter from "./app/component/counter"
@@ -15,19 +15,17 @@ export default function App() {
         // TODO: ErrorBounday
         <RootStateContext.Provider value={state}>
             <RootDispatchContext.Provider value={dispatch}>
-                <CounterStateContext.Provider value={state.counter}>
-                    <h1>Hello</h1>
-                    <hr />
-                    <Post />
-                    <hr />
-                    <Comment />
-                    <hr />
-                    <LastUpdated />
-                    <hr />
-                    <Counter />
-                    <hr />
-                    <CommentMulti />
-                </CounterStateContext.Provider>
+                <h1>Hello</h1>
+                <hr />
+                <Post />
+                <hr />
+                <Comment />
+                <hr />
+                <LastUpdated />
+                <hr />
+                <Counter />
+                <hr />
+                <CommentMulti />
             </RootDispatchContext.Provider>
         </RootStateContext.Provider>
     )
