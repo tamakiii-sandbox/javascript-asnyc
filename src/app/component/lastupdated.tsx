@@ -1,8 +1,8 @@
 import React from "react"
-import { useAppState } from "../context/app";
+import { useRootState } from "../context/app";
 
 export default function Component() {
-    const state = useAppState();
+    const state = useRootState();
     window.console.log(state)
 
     return (

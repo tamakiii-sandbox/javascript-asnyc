@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react"
 import * as api from "../../api"
-import { useAppState, useAppDispatch } from "../../context/app";
+import { useRootState, useDispatch } from "../../context/app";
 
 const post = async (body: string, postId: number, dispatch: any) => {
     try {
@@ -14,8 +14,8 @@ const post = async (body: string, postId: number, dispatch: any) => {
 export default function Component() {
     const [body, setBody] = useState<string>("Awsome comment")
     const [postId, setPostId] = useState<number>(2)
-    const state = useAppState()
-    const dispatch = useAppDispatch()
+    const state = useRootState()
+    const dispatch = useDispatch()
     window.console.log(state.app.posts)
 
     return (

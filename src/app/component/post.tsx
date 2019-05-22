@@ -2,11 +2,11 @@ import React, { useEffect } from "react"
 import * as rest from "../api/rest/post"
 import * as api from "../api/post"
 import PostForm from "./form/post"
-import { useAppDispatch, useAppState } from "../context/app";
+import { useDispatch, useRootState } from "../context/app";
 
 export default function Component() {
-    const state = useAppState()
-    const dispatch = useAppDispatch()
+    const state = useRootState()
+    const dispatch = useDispatch()
 
     useEffect(() => {
         (async () => {

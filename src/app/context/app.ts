@@ -1,12 +1,12 @@
 import React, { useContext } from "react"
 import * as reducer from "../reducer"
 
-export const AppStateContext = React.createContext<reducer.RootState>(null as any);
-export const AppDispatchContext = React.createContext<React.Dispatch<reducer.Action>>(null as any)
+export const RootStateContext = React.createContext<reducer.RootState>(null as any);
+export const DispatchContext = React.createContext<React.Dispatch<reducer.Action>>(null as any)
 
-export function useAppState() {
-    return useContext(AppStateContext)
+export function useRootState() {
+    return useContext(RootStateContext)
 }
-export function useAppDispatch() {
-    return useContext(AppDispatchContext)
+export function useDispatch() {
+    return useContext(DispatchContext)
 }

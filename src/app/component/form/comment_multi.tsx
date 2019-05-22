@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react"
 import update from 'immutability-helper';
 import * as api from "../../api"
-import { useAppState, useAppDispatch } from "../../../app/context/app";
+import { useRootState, useDispatch } from "../../../app/context/app";
 
 const postMulti = async (post: api.post.Post | undefined, comments: api.comment.Comment[]) => {
     window.console.log(post, post ? post.id : undefined)
@@ -39,7 +39,7 @@ export default function Component() {
         {body: "world", postId: 0},
     ]);
     const [post, setPost] = useState<api.post.Post | undefined>(undefined);
-    const state = useAppState()
+    const state = useRootState()
 
     const onChangeCommentBody = async (index: number, body: string) => {
         setComments(update(comments, {[index]: {body: {$set: body}}}))

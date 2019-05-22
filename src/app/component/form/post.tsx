@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import * as api from "../../api"
 import { ResultType } from "../../api/rest"
-import { useAppState, useAppDispatch } from "../../context/app";
+import { useRootState, useDispatch } from "../../context/app";
 
 const get = async (id: number) => {
     try {
@@ -36,8 +36,8 @@ export default function Component() {
     const [id, setId] = useState<number>(0);
     const [title, setTitle] = useState<string>((new Date()).toUTCString());
     const [author, setAuthor] = useState<string>("Test man");
-    const state = useAppState()
-    const dispatch = useAppDispatch()
+    const state = useRootState()
+    const dispatch = useDispatch()
 
     const resetPost = () => {
         setId(0)
