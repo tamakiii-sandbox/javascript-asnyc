@@ -2,12 +2,12 @@ import React, { useState, useEffect, useDebugValue } from "react";
 import * as rest from "../api/rest/comment";
 import * as api from "../api/comment"
 import Form from "./form/comment"
-import { useRootState, useDispatch } from "../context/app";
+import { useRootState, useRootDispatch } from "../context/app";
 
 export default function Component() {
     const [comments, setComments] = useState<rest.Comment[]>([])
     const state = useRootState()
-    const dispatch = useDispatch()
+    const dispatch = useRootDispatch()
 
     useEffect(() => {
         (async() => {
