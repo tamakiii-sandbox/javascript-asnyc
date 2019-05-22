@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react"
+import React, { useState } from "react"
 import update from 'immutability-helper';
 import * as api from "../../api"
-import { useRootState, useRootDispatch } from "../../context";
+import { useRootState } from "../../context";
 
 const postMulti = async (post: api.post.Post | undefined, comments: api.comment.Comment[]) => {
     window.console.log(post, post ? post.id : undefined)

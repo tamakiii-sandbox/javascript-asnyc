@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import * as rest from "../api/rest/post"
 import * as api from "../api/post"
 import PostForm from "./form/post"
-import { useRootDispatch, useRootState, RootStateContext } from "../context";
+import { useRootState, useRootDispatch } from "../context";
 
 export default function Component() {
     const state = useRootState()

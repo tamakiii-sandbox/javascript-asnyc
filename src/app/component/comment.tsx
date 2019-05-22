@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useDebugValue } from "react";
+import React, { useState, useEffect } from "react";
 import * as rest from "../api/rest/comment";
 import * as api from "../api/comment"
 import Form from "./form/comment"

@@ -1,10 +1,10 @@
-import React, { useState, useContext } from "react"
+import React, { useState } from "react"
 import * as api from "../../api"
 import { useRootState, useRootDispatch } from "../../context";
 
 const post = async (body: string, postId: number, dispatch: any) => {
     try {
-        const response = await api.comment.post({body, postId})
+        await api.comment.post({body, postId})
         dispatch({ type: 'lastUpdated', payload: new Date})
     } catch (error) {
         throw error
