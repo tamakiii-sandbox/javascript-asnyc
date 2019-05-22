@@ -9,7 +9,7 @@ type CounterAction = {
     payload: number
 }
 
-export const initialState : State = {
+export const initialState: State = {
     count: 0
 }
 
