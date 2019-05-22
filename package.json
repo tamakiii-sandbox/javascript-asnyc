@@ -8,7 +8,6 @@
     "@types/react": "^16.8.17",
     "@types/react-dom": "^16.8.4",
     "@types/react-virtualized": "^9.21.1",
-    "@types/redux": "^3.6.0",
     "@types/styled-components": "^4.1.15",
     "css-loader": "^2.1.1",
     "eslint": "^5.16.0",
