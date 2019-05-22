@@ -5,7 +5,7 @@ import { useAppState, useAppDispatch } from "../../context/app";
 const post = async (body: string, postId: number, dispatch: any) => {
     try {
         const response = await api.comment.post({body, postId})
-        dispatch({ type: 'lastUpdated', value: new Date})
+        dispatch({ type: 'lastUpdated', payload: new Date})
     } catch (error) {
         throw error
     }

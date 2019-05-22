@@ -22,14 +22,14 @@ export type Action =
         value: Date
     }
 
-export const initialState = {
+export const initialState : State = {
     count: 0,
     posts: [],
     comments: [],
     lastUpdated: new Date,
 }
 
-export const reducer = (state: any, action: Action) => {
+export const reducer = (state: State, action: Action) => {
     if (action.type === 'counter') {
         if (action.value == 0) {
             return {...state, count: 0 }

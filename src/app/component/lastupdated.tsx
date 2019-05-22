@@ -1,9 +1,9 @@
-import React, { useContext } from "react"
+import React from "react"
 import { useAppState } from "../context/app";
 
 export default function Component() {
     const state = useAppState();
-    window.console.log(context)
+    window.console.log(state)
 
     return (
         <strong>{state.lastUpdated.toUTCString()}</strong>
