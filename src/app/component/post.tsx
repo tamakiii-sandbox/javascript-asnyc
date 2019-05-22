@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useContext } from "react"
 import * as rest from "../api/rest/post"
 import * as api from "../api/post"
-import { AppContext, Context } from "../../app";
 import PostForm from "./form/post"
+import { useAppDispatch, useAppState } from "../context/app";
 
 export default function Component() {
     const [posts, setPosts] = useState<rest.Post[]>([])
-    const context = useContext<Context>(AppContext)
+    const state = useAppState()
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
         (async () => {
@@ -14,10 +15,10 @@ export default function Component() {
             if (response.type == rest.ResultType.OK) {
                 const posts = response.body
                 setPosts(posts)
-                context.dispatch({ type: 'posts', value: posts})
+                dispatch({ type: 'posts', value: posts})
             }
         })();
-    }, [context.state.lastUpdated])
+    }, [state.lastUpdated])
 
     return (
         <>

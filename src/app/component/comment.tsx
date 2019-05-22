@@ -1,12 +1,13 @@
-import React, { useState, useContext, useEffect } from "react";
-import { AppContext, Context } from "../../app";
+import React, { useState, useEffect } from "react";
 import * as rest from "../api/rest/comment";
 import * as api from "../api/comment"
 import Form from "./form/comment"
+import { useAppState, useAppDispatch } from "../context/app";
 
 export default function Component() {
     const [comments, setComments] = useState<rest.Comment[]>([])
-    const context = useContext<Context>(AppContext);
+    const state = useAppState()
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
         (async() => {
@@ -14,10 +15,10 @@ export default function Component() {
             if (response.type == rest.ResultType.OK) {
                 const comments = response.body
                 setComments(comments)
-                context.dispatch({ type: 'comments', value: comments})
+                dispatch({ type: 'comments', value: comments})
             }
         })()
-    }, [context.state.lastUpdated])
+    }, [state.lastUpdated])
 
     return (
         <>
