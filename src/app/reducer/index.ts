@@ -7,20 +7,26 @@ export interface State {
     lastUpdated: Date
 }
 
-export type Action =
-    | {
-        type: 'counter'
-        payload: number
-    } | {
-        type: 'posts'
-        payload: api.post.Post[]
-    } | {
-        type: 'comments'
-        payload: api.comment.Comment[]
-    } | {
-        type: 'lastUpdated'
-        payload: Date
-    }
+type CounterAction = {
+    type: 'counter'
+    payload: number
+}
+
+type PostAction = {
+    type: 'posts'
+    payload: api.post.Post[]
+}
+
+type CommentAction = {
+    type: 'comments'
+    payload: api.comment.Comment[]
+}
+type LastUpdatedAction = {
+    type: 'lastUpdated'
+    payload: Date
+}
+
+export type Action = CounterAction | PostAction | CommentAction | LastUpdatedAction;
 
 export const initialState : State = {
     count: 0,
